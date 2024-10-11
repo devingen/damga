@@ -50,9 +50,9 @@ Create a git tag with the desired version and push the tag.
 git tag --list
 
 # create new tag
-git tag -a v0.0.1 -m ""
+git tag -a damga-cli-v0.0.2 -m ""
 
 # push new tag
-git push origin v0.0.1
+git push origin damga-cli-v0.0.2
 ```
 

@@ -27,7 +27,7 @@ func sendRequest(method, path string, body interface{}, responseBody interface{}
 
 	apiKey := os.Getenv("DAMGA_API_KEY")
 	if apiKey != "" {
-		request.Header.Add("Api-Key", apiKey)
+		request.Header.Add("api-key", apiKey)
 	}
 
 	client := &http.Client{}
