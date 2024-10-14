@@ -3,10 +3,10 @@
 ## Usage
 
 ```shell
-# Add a new target to the target group
+# Add a new target to a target group
 damga tg add-target --api-key=ASD --id abcd --target 1.2.3.4
 
-# Remove a target from the target group
+# Remove a target from a target group
 damga tg remove-target --api-key=ASD --id abcd --target 1.2.3.4
 ```
 
