@@ -46,7 +46,7 @@ Then you'll be able to run the `damga` command.
 Create a git tag with the desired version and push the tag.
 
 ```
-VERSION=0.0.4
+VERSION=1.0.0
 make archive-release VERSION=$VERSION
 
 # see tags
