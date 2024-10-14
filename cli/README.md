@@ -3,13 +3,11 @@
 ## Usage
 
 ```shell
-export DAMGA_API_KEY=...
-
 # Add a new target to the target group
-damga tg add --id 67058cdd0d1b707123eac0e4 --target 1.2.3.4
+damga tg add-target --api-key=ASD --id abcd --target 1.2.3.4
 
 # Remove a target from the target group
-damga tg remove --id 67058cdd0d1b707123eac0e4 --target 1.2.3.4
+damga tg remove-target --api-key=ASD --id abcd --target 1.2.3.4
 ```
 
 ## Development
