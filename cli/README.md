@@ -46,13 +46,16 @@ Then you'll be able to run the `damga` command.
 Create a git tag with the desired version and push the tag.
 
 ```
+VERSION=0.0.4
+make archive-release VERSION=$VERSION
+
 # see tags
 git tag --list
 
 # create new tag
-git tag -a damga-cli-v0.0.2 -m ""
+git tag -a damga-cli-v$VERSION -m ""
 
 # push new tag
-git push origin damga-cli-v0.0.2
+git push origin damga-cli-v$VERSION
 ```
 

@@ -7,8 +7,8 @@ import (
 
 const desc = `Usage: damga <tg>
 Examples:
-  damga tg add --id abcd --target 1.2.3.4
-  damga tg remove --id abcd --target 1.2.3.4
+  damga tg add-target --api-key=ASD --id abcd --target 1.2.3.4
+  damga tg remove-target --api-key=ASD --id abcd --target 1.2.3.4
 `
 
 func main() {
