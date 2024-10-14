@@ -26,7 +26,7 @@ func main() {
 	case "-h", "--help":
 		fmt.Print(desc)
 	case "-v", "--version":
-		fmt.Println("damga v0.0.1")
+		fmt.Println("damga v1.0.0")
 	default:
 		fmt.Println("Unknown command.")
 		fmt.Print(desc)
