@@ -5,11 +5,6 @@ build:
 # Define the output directory
 OUTPUT_DIR := release
 
-# Check if VERSION is provided
-ifndef VERSION
-$(error VERSION is not defined. Use 'make archive-release VERSION=<version>' to provide it.)
-endif
-
 # Build for multiple platforms with version
 .PHONY: build-release
 build-release:

@@ -33,7 +33,7 @@ needs to be attached to the release on GitHub into `/releases` folder.
 
 ```shell
 # put the new version here
-VERSION=1.0.0
+VERSION=1.0.1
 
 # generate the archives to be attached to the release
 make archive-release VERSION=$VERSION

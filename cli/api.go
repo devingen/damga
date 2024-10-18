@@ -13,7 +13,7 @@ func sendRequest(apiKey, method, path string, body interface{}, responseBody int
 		return nil, err
 	}
 
-	apiURL := "https://api.damga.devingen.io"
+	apiURL := "https://api.damga.das.devingen.io"
 	request, err := http.NewRequest(method, apiURL+path, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return nil, err
