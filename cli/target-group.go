@@ -26,11 +26,15 @@ func handleTargetCommand() error {
 	switch subCommand {
 	case "add-target", "remove-target":
 		tgCmd := flag.NewFlagSet("add", flag.ExitOnError)
+		apiAddress := tgCmd.String("api-address", "", "api-address")
 		apiKey := tgCmd.String("api-key", "", "api-key")
 		id := tgCmd.String("id", "", "id")
 		target := tgCmd.String("target", "", "target")
 		tgCmd.Parse(os.Args[3:])
 
+		if *apiAddress != "" {
+			fmt.Println("Using API address:", *apiAddress)
+		}
 		if *apiKey == "" {
 			return errors.New("API Key must be provided with --api-key")
 		}
@@ -41,7 +45,7 @@ func handleTargetCommand() error {
 			return errors.New("Target host must be provided with --target")
 		}
 
-		return addOrRemoveTargetsInTargetGroups(*apiKey, *id, *target, subCommand)
+		return addOrRemoveTargetsInTargetGroups(*apiAddress, *apiKey, *id, *target, subCommand)
 	default:
 		fmt.Println("Expected 'add-target' or 'remove-target' but got '" + subCommand + "' instead.")
 		os.Exit(1)
@@ -49,7 +53,7 @@ func handleTargetCommand() error {
 	return nil
 }
 
-func addOrRemoveTargetsInTargetGroups(apiKey, id, target, action string) error {
+func addOrRemoveTargetsInTargetGroups(apiAddress, apiKey, id, target, action string) error {
 	responseBody := map[string]interface{}{}
 
 	switch action {
@@ -60,6 +64,7 @@ func addOrRemoveTargetsInTargetGroups(apiKey, id, target, action string) error {
 		}
 
 		_, err := post(
+			apiAddress,
 			apiKey,
 			"/target-groups/"+id+"/targets/"+actionInPath,
 			map[string]interface{}{"value": target},

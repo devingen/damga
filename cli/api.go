@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func sendRequest(apiKey, method, path string, body interface{}, responseBody interface{}) (interface{}, error) {
+func sendRequest(apiAddress, apiKey, method, path string, body interface{}, responseBody interface{}) (interface{}, error) {
 
 	requestBody, err := json.Marshal(body)
 	if err != nil {
@@ -14,6 +14,9 @@ func sendRequest(apiKey, method, path string, body interface{}, responseBody int
 	}
 
 	apiURL := "https://api.damga.das.devingen.io"
+	if apiAddress != "" {
+		apiURL = apiAddress
+	}
 	request, err := http.NewRequest(method, apiURL+path, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return nil, err
@@ -36,6 +39,6 @@ func sendRequest(apiKey, method, path string, body interface{}, responseBody int
 	return responseBody, nil
 }
 
-func post(apiKey, path string, body interface{}, responseBody interface{}) (interface{}, error) {
-	return sendRequest(apiKey, http.MethodPost, path, body, responseBody)
+func post(apiAddress, apiKey, path string, body interface{}, responseBody interface{}) (interface{}, error) {
+	return sendRequest(apiAddress, apiKey, http.MethodPost, path, body, responseBody)
 }
